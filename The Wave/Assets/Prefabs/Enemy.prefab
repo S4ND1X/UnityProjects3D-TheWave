@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 8098445937884344935}
   - component: {fileID: 8098445937884344934}
   - component: {fileID: 8098445937884344987}
+  - component: {fileID: 7506311092379996549}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -225,3 +226,15 @@ MonoBehaviour:
   playerToFollow: {fileID: 0}
   followRadius: 4
   distanceFromPlayer: Infinity
+--- !u!114 &7506311092379996549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8098445937884344929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4df3c03cb37f9b40a52842aa94e96b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

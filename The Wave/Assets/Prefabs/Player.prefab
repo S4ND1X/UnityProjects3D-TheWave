@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 667c189a5b3327b42843ca2c5e25b84e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 912813871018533925}
+  shootingDistance: 80
 --- !u!1 &912813871254206792
 GameObject:
   m_ObjectHideFlags: 0
