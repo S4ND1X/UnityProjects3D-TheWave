@@ -54,7 +54,7 @@ public class PlayerMove : MonoBehaviour
         JumpInput();
     }
 
-    //The transition from walking to running it's smooth, so that why 
+    //The transition from walking to running it's smooth, so that why it gradually arrives to the b speed
     private void SetMovementSpeed()
     {
         if (Input.GetKey(runK))

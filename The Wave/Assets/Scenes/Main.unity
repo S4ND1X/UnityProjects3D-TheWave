@@ -5094,7 +5094,7 @@ GameObject:
   - component: {fileID: 478715641}
   - component: {fileID: 478715640}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Pointing Direction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8241,7 +8241,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -25002,7 +25002,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44a9bc3f55279cb4a914e86ebb56a688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectToFollow: {fileID: 723633269}
+  playerToFollow: {fileID: 723633269}
+  followRadius: 4
+  distanceFromPlayer: Infinity
 --- !u!1001 &2061022140
 PrefabInstance:
   m_ObjectHideFlags: 0
