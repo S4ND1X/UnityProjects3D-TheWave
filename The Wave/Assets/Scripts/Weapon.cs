@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
     //Cached references
     [SerializeField] private Camera mainCamera;
     [SerializeField] private ParticleSystem weaponParticles;
+    [SerializeField] private GameObject hitParticles; // Use GameObject instead of particle system to be able to instantiate and destroy
 
     //Config Values
     [SerializeField] private float shootingDistance = 80f;
@@ -34,20 +35,24 @@ public class Weapon : MonoBehaviour
     private void Shoot()
     {
 
+        ShootParticles();
 
-        InstantiateParticles();
-
-        try
+        //Throws a ray forwards to the player and returns information about the the object it hit
+        if(Physics.Raycast(this.mainCamera.transform.position, this.mainCamera.transform.forward, out RaycastHit hit, this.shootingDistance))
         {
-            //Throws a ray forwards to the player and returns information about the the object it hit
-            Physics.Raycast(this.mainCamera.transform.position, this.mainCamera.transform.forward, out RaycastHit hit, this.shootingDistance);
-            EnemyLive enemyHit = hit.transform.GetComponent<EnemyLive>();//Get the script of all enemies hit
-            enemyHit.HitTaken(this.weaponDamage);
+            HitParticles(hit);
+            try
+            {
+                EnemyLive enemyHit = hit.transform.GetComponent<EnemyLive>();//Get the script of all enemies hit
+                enemyHit.HitTaken(this.weaponDamage);
+            }
+            catch (NullReferenceException)
+            {
+                Debug.Log("No EnemyLive Componen");
+            }
         }
-        catch (NullReferenceException)
-        {
-            Debug.Log("No object hit");
-        }
+        
+        
        
         
 
@@ -55,9 +60,16 @@ public class Weapon : MonoBehaviour
 
     }
 
-    private void InstantiateParticles()
+    private void HitParticles(RaycastHit hit)
+    {  
+        //Use LookRotation to always be lookin at the normal of the hit point, in other word always the particles goes outside
+        GameObject particle =  Instantiate(this.hitParticles, hit.point,  Quaternion.LookRotation(hit.normal));
+        Destroy(particle, 0.5f);
+    }
+
+    private void ShootParticles()
     {
-        Debug.Log("particulas");
+
         this.weaponParticles.Play();
     }
 }

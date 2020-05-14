@@ -25973,6 +25973,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 912813871018533927, guid: acfaff67807743c428a76d29ffa235ee,
+        type: 3}
+      propertyPath: sensitivity
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 912813871254206792, guid: acfaff67807743c428a76d29ffa235ee,
         type: 3}
       propertyPath: m_Name
@@ -26033,6 +26038,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5334614105553216254, guid: acfaff67807743c428a76d29ffa235ee,
+        type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 7202269624239688775, guid: 0452a3fbd190c2849834084d8e2182f0,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acfaff67807743c428a76d29ffa235ee, type: 3}
 --- !u!1001 &6068159483515442704
