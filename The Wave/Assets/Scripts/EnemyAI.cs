@@ -14,7 +14,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float followRadius = 4f;
     [SerializeField] private float distanceFromPlayer = Mathf.Infinity; /* We cannot leave by default because it starts at 0
                                                                         * and the enemy will start to follow right away
-                                                                        */                      
+                                                                        */
+    private bool isProvoked = true;
 
     void Start()
     {
@@ -24,18 +25,37 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         this.distanceFromPlayer = Vector3.Distance(this.playerToFollow.position, this.transform.position);//Distance from a to b
-        followPlayer();
+        EnemyStatus();
 
     }
 
-    public void followPlayer()
+    public void EnemyStatus()
     {
-        if (this.distanceFromPlayer <= this.followRadius)
+        //If the player was shooted the enemy won't stop following
+        if (this.isProvoked)
         {
-            this.navMeshAgent.SetDestination(playerToFollow.position);//Calculates a new path based on target's positon (Vector 3)
+            Chasing(); // follow
+        }
+        else if (this.distanceFromPlayer <= this.followRadius)
+        {
+            this.isProvoked = true;
         }
     }
 
+
+    private void Chasing()
+    {
+        if(this.distanceFromPlayer <= this.navMeshAgent.stoppingDistance)
+        {
+            Attack();
+        }
+        this.navMeshAgent.SetDestination(playerToFollow.position);//Calculates a new path based on target's positon (Vector 3)
+    }
+
+    private void Attack()
+    {
+        Debug.Log("Punching");
+    }
 
     //Draw a sphere in the chasing radius (Only for debugging)
     private void OnDrawGizmosSelected()
