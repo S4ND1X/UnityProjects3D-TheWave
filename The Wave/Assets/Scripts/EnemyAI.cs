@@ -9,17 +9,22 @@ public class EnemyAI : MonoBehaviour
     //Cached References
     [SerializeField] private Transform playerToFollow;
     private NavMeshAgent navMeshAgent;
+    private Animator enemyAnimator;
 
     //Config Enemy Values
     [SerializeField] private float followRadius = 4f;
     [SerializeField] private float distanceFromPlayer = Mathf.Infinity; /* We cannot leave by default because it starts at 0
                                                                         * and the enemy will start to follow right away
                                                                         */
-    private bool isProvoked = true;
+    private bool isProvoked = false;
 
     void Start()
     {
         this.navMeshAgent = GetComponent<NavMeshAgent>(); //Gets te component of this type attached to the GameObject
+        this.enemyAnimator = GetComponent<Animator>();
+
+
+        this.enemyAnimator.SetBool("Idle", true);//Set de animation idle to true
     }
      
     void Update()
@@ -45,7 +50,10 @@ public class EnemyAI : MonoBehaviour
 
     private void Chasing()
     {
-        if(this.distanceFromPlayer <= this.navMeshAgent.stoppingDistance)
+        //If chasing then attacking is false
+        this.enemyAnimator.SetBool("Chasing", true);
+        this.enemyAnimator.SetBool("Attacking", false);
+        if (this.distanceFromPlayer <= this.navMeshAgent.stoppingDistance)
         {
             Attack();
         }
@@ -54,7 +62,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log("Punching");
+        this.enemyAnimator.SetBool("Attacking", true);
     }
 
     //Draw a sphere in the chasing radius (Only for debugging)

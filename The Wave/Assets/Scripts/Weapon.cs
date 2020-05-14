@@ -48,7 +48,7 @@ public class Weapon : MonoBehaviour
             }
             catch (NullReferenceException)
             {
-                Debug.Log("No EnemyLive Componen");
+                Debug.Log("No EnemyLive Component");
             }
         }
         
