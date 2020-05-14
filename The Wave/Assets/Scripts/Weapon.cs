@@ -5,6 +5,7 @@ public class Weapon : MonoBehaviour
 {
     //Cached references
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private ParticleSystem weaponParticles;
 
     //Config Values
     [SerializeField] private float shootingDistance = 80f;
@@ -32,6 +33,10 @@ public class Weapon : MonoBehaviour
 
     private void Shoot()
     {
+
+
+        InstantiateParticles();
+
         try
         {
             //Throws a ray forwards to the player and returns information about the the object it hit
@@ -48,5 +53,11 @@ public class Weapon : MonoBehaviour
 
         //TODO: Particles
 
+    }
+
+    private void InstantiateParticles()
+    {
+        Debug.Log("particulas");
+        this.weaponParticles.Play();
     }
 }
