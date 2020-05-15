@@ -53,13 +53,6 @@ public class Weapon : MonoBehaviour
                 Debug.Log("No EnemyLive Component");
             }
         }
-        
-        
-       
-        
-
-        //TODO: Particles
-
     }
 
     private void HitParticles(RaycastHit hit)
@@ -72,6 +65,6 @@ public class Weapon : MonoBehaviour
     private void ShootParticles()
     {
 
-        this.weaponParticles.Play();
+        this.weaponParticles.Play();//Play particles inside prefab, it's better if we alwas know where is goint to happen
     }
 }

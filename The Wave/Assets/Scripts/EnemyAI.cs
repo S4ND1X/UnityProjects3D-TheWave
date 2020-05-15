@@ -65,6 +65,12 @@ public class EnemyAI : MonoBehaviour
         this.enemyAnimator.SetBool("Attacking", true);
     }
 
+
+    public void onShootTaken()
+    {
+        this.isProvoked = true;
+    }
+
     //Draw a sphere in the chasing radius (Only for debugging)
     private void OnDrawGizmosSelected()
     {
