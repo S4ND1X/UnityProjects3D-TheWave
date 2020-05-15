@@ -27,7 +27,7 @@ This game made using Unity, includes features like:
 ![enter image description here](https://serving.photos.photobox.com/323682716e8f2cc7aecb02ce5f510cbc7290e504eaf9152eb2766a129819d9ec36822fba.jpg)
 
 ## How to use it
-This game was made usin Unity 2019.2.19F1.
+This game was made using Unity 2019.2.19F1.
 - It may be used with previous versions but it is recommended to use the current or newer one.
 - All the main code is under [Assets/Scripts](https://github.com/S4ND1X/UnityProjects3D-TheWave/tree/master/The%20Wave/Assets/Scripts). 
 -  The repository already contains all the images, 3d models, etc. necessary to function
