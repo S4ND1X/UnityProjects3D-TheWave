@@ -8,16 +8,11 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private ParticleSystem weaponParticles;
     [SerializeField] private GameObject hitParticles; // Use GameObject instead of particle system to be able to instantiate and destroy
+    [SerializeField] private Ammo ammountAmmoWeapon;
 
     //Config Values
     [SerializeField] private float shootingDistance = 80f;
     [SerializeField] private float weaponDamage = 33;
-    
-    void Start()
-    {
-        
-    }
-
     
     void Update()
     {
@@ -36,6 +31,8 @@ public class Weapon : MonoBehaviour
 
     private void Shoot()
     {
+        if (this.ammountAmmoWeapon.GetAmmount() <= 0) { return; } //If run out of ammo don't shoot
+        this.ammountAmmoWeapon.SetAmmount(this.ammountAmmoWeapon.GetAmmount() - 1); //Reduce ammo by 1
 
         ShootParticles();
 
