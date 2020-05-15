@@ -28,8 +28,8 @@ This game made using Unity, includes features like:
 
 ## How to use it
 This game was made usin Unity 2019.2.19F1.
-It may be used with previous versions but it is recommended to use the current or newer one.
-All the main code is under [Assets/Scripts](https://github.com/S4ND1X/UnityProjects3D-TheWave/tree/master/The%20Wave/Assets/Scripts). 
- The repository already contains all the images, 3d models, etc. necessary to function
+- It may be used with previous versions but it is recommended to use the current or newer one.
+- All the main code is under [Assets/Scripts](https://github.com/S4ND1X/UnityProjects3D-TheWave/tree/master/The%20Wave/Assets/Scripts). 
+-  The repository already contains all the images, 3d models, etc. necessary to function
 ## Credits
 All 3D models were downloaded from the Unity Assets Store with a personal use license. All credits / licenses for 3D models go to them
