@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -28,6 +29,7 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            if (EventSystem.current.IsPointerOverGameObject()) { return; }
             Shoot();
         }
     }

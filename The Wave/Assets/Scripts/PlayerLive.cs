@@ -7,7 +7,12 @@ public class PlayerLive : MonoBehaviour
 
     //Config values
     [SerializeField] private float maxHealth = 100f;
+    private DeathHandling deathHandling;
 
+     void Start()
+    {
+        this.deathHandling = GetComponent<DeathHandling>();
+    }
 
     public void takeDamage(float damage)
     {
@@ -16,7 +21,7 @@ public class PlayerLive : MonoBehaviour
 
         if (this.maxHealth <= 0.0f)
         {
-            Debug.Log("Player die");
+            this.deathHandling.onDeath();
         }
     }
 
