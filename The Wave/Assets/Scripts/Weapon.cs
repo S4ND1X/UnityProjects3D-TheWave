@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine.EventSystems;
 using UnityEngine;
+using System.Collections;
 
 public class Weapon : MonoBehaviour
 {
@@ -13,27 +14,35 @@ public class Weapon : MonoBehaviour
     //Config Values
     [SerializeField] private float shootingDistance = 80f;
     [SerializeField] private float weaponDamage = 33;
+    [SerializeField] private bool avaibleShooting = true;
+    [SerializeField] private float cadencyTime = 2;
     
     void Update()
     {
         PlayerInput();
     }
 
+    private void OnEnable()
+    {
+        this.avaibleShooting = true;
+    }
+
 
     private void PlayerInput()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && avaibleShooting)
         {
-            if (EventSystem.current.IsPointerOverGameObject()) { return; }
-            Shoot();
+            
+           StartCoroutine(Shoot());
         }
     }
 
-    private void Shoot()
+    IEnumerator  Shoot()
     {
-        if (this.ammountAmmoWeapon.GetAmmount() <= 0) { return; } //If run out of ammo don't shoot
+        if (this.ammountAmmoWeapon.GetAmmount() <= 0) { yield break; } //If run out of ammo don't shoot
         this.ammountAmmoWeapon.SetAmmount(this.ammountAmmoWeapon.GetAmmount() - 1); //Reduce ammo by 1
 
+        this.avaibleShooting = false;
         ShootParticles();
 
         //Throws a ray forwards to the player and returns information about the the object it hit
@@ -50,6 +59,8 @@ public class Weapon : MonoBehaviour
                 Debug.Log("No EnemyLive Component");
             }
         }
+        yield return new WaitForSeconds(this.cadencyTime);
+        this.avaibleShooting = true;
     }
 
     private void HitParticles(RaycastHit hit)
