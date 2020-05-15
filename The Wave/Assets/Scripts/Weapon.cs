@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private ParticleSystem weaponParticles;
     [SerializeField] private GameObject hitParticles; // Use GameObject instead of particle system to be able to instantiate and destroy
     [SerializeField] private Ammo ammountAmmoWeapon;
+    [SerializeField] private AmmoWeapon ammoWeapon;//Reference to the type of ammo that this weapon can use
 
     //Config Values
     [SerializeField] private float shootingDistance = 80f;
@@ -27,7 +28,6 @@ public class Weapon : MonoBehaviour
         this.avaibleShooting = true;
     }
 
-
     private void PlayerInput()
     {
         if (Input.GetButtonDown("Fire1") && avaibleShooting)
@@ -39,8 +39,8 @@ public class Weapon : MonoBehaviour
 
     IEnumerator  Shoot()
     {
-        if (this.ammountAmmoWeapon.GetAmmount() <= 0) { yield break; } //If run out of ammo don't shoot
-        this.ammountAmmoWeapon.SetAmmount(this.ammountAmmoWeapon.GetAmmount() - 1); //Reduce ammo by 1
+        if (this.ammountAmmoWeapon.GetAmmount(this.ammoWeapon) <= 0) { yield break; } //If run out of ammo don't shoot
+        this.ammountAmmoWeapon.SetAmmount(this.ammountAmmoWeapon.GetAmmount(this.ammoWeapon) - 1, this.ammoWeapon); //Reduce ammo of the weapon by 1
 
         this.avaibleShooting = false;
         ShootParticles();

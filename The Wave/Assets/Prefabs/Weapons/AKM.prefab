@@ -545,6 +545,7 @@ MonoBehaviour:
   hitParticles: {fileID: 7202269624239688775, guid: 0452a3fbd190c2849834084d8e2182f0,
     type: 3}
   ammountAmmoWeapon: {fileID: 0}
+  ammoWeapon: 1
   shootingDistance: 40
   weaponDamage: 33
   avaibleShooting: 1

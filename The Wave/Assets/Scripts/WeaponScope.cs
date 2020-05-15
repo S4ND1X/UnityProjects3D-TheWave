@@ -28,6 +28,11 @@ public class WeaponScope : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        this.mainCamera.fieldOfView = this.scopeOut;
+    }
+
 
 
 
