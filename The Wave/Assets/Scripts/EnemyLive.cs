@@ -25,7 +25,7 @@ public class EnemyLive : MonoBehaviour
     {
         if (this.isDead) { return; }
         this.isDead = true;
-        GetComponent<Animator>().SetBool("Die", true);
+        GetComponent<Animator>().SetTrigger("Die");
         Destroy(gameObject, 3f);
     }
 

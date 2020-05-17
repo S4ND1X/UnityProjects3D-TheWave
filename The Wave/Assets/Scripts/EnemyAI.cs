@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour
         this.enemyAnimator = GetComponent<Animator>();
         this.enemyLive = GetComponent<EnemyLive>();
 
-        this.enemyAnimator.SetBool("Idle", true);//Set de animation idle to true
+        this.enemyAnimator.SetTrigger("Idle");//Set de animation idle to true
     }
      
     void Update()
@@ -56,7 +56,7 @@ public class EnemyAI : MonoBehaviour
     private void Chasing()
     {
         //If chasing then attacking is false
-        this.enemyAnimator.SetBool("Chasing", true);
+        this.enemyAnimator.SetTrigger("Chasing");
         this.enemyAnimator.SetBool("Attacking", false);
         if (distanceFromPlayer <= this.navMeshAgent.stoppingDistance)
         {
