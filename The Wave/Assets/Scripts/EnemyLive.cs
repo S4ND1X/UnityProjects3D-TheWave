@@ -8,7 +8,7 @@ public class EnemyLive : MonoBehaviour
 
     //Config Values
     [SerializeField] private float maxHealt = 100f;
-
+    private bool isDead = false;
 
     public void HitTaken(float damage)
     {
@@ -17,8 +17,21 @@ public class EnemyLive : MonoBehaviour
         this.maxHealt -= damage;
         if(this.maxHealt <= 0)
         {
-            Destroy(this.gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        if (this.isDead) { return; }
+        this.isDead = true;
+        GetComponent<Animator>().SetBool("Die", true);
+        Destroy(gameObject, 3f);
+    }
+
+    public bool IsDead()
+    {
+        return this.isDead;
     }
 
 }

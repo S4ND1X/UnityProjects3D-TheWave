@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Transform playerToFollow;
     private NavMeshAgent navMeshAgent;
     private Animator enemyAnimator;
+    private EnemyLive enemyLive;
 
     //Config Enemy Values
     [SerializeField] private float followRadius = 4f;
@@ -22,20 +23,24 @@ public class EnemyAI : MonoBehaviour
     {
         this.navMeshAgent = GetComponent<NavMeshAgent>(); //Gets te component of this type attached to the GameObject
         this.enemyAnimator = GetComponent<Animator>();
-
+        this.enemyLive = GetComponent<EnemyLive>();
 
         this.enemyAnimator.SetBool("Idle", true);//Set de animation idle to true
     }
      
     void Update()
     {
-        this.distanceFromPlayer = Vector3.Distance(this.playerToFollow.position, this.transform.position);//Distance from a to b
         EnemyStatus();
-
     }
 
     public void EnemyStatus()
     {
+        if (this.enemyLive.IsDead()) {
+            this.navMeshAgent.enabled = false;
+            this.isProvoked = false;
+        }
+
+        this.distanceFromPlayer = Vector3.Distance(this.playerToFollow.position, this.transform.position); //Distance from a to b
         //If the player was shooted the enemy won't stop following
         if (this.isProvoked)
         {
@@ -53,7 +58,7 @@ public class EnemyAI : MonoBehaviour
         //If chasing then attacking is false
         this.enemyAnimator.SetBool("Chasing", true);
         this.enemyAnimator.SetBool("Attacking", false);
-        if (this.distanceFromPlayer <= this.navMeshAgent.stoppingDistance)
+        if (distanceFromPlayer <= this.navMeshAgent.stoppingDistance)
         {
             Attack();
         }
