@@ -12,6 +12,7 @@ public class EnemyLive : MonoBehaviour
 
     public void HitTaken(float damage)
     {
+        
         this.gameObject.GetComponent<EnemyAI>().onShootTaken();
         //BroadcastMessage("onShootTaken");
         this.maxHealt -= damage;

@@ -7,7 +7,7 @@ public class EnemyAI : MonoBehaviour
 {
 
     //Cached References
-    [SerializeField] private Transform playerToFollow;
+    private Transform playerToFollow;
     private NavMeshAgent navMeshAgent;
     private Animator enemyAnimator;
     private EnemyLive enemyLive;
@@ -21,6 +21,7 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
+        this.playerToFollow = FindObjectOfType<PlayerLive>().transform;
         this.navMeshAgent = GetComponent<NavMeshAgent>(); //Gets te component of this type attached to the GameObject
         this.enemyAnimator = GetComponent<Animator>();
         this.enemyLive = GetComponent<EnemyLive>();

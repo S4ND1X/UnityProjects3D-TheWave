@@ -2,6 +2,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class Weapon : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private GameObject hitParticles; // Use GameObject instead of particle system to be able to instantiate and destroy
     [SerializeField] private Ammo ammountAmmoWeapon;
     [SerializeField] private AmmoWeapon ammoWeapon;//Reference to the type of ammo that this weapon can use
+    [SerializeField] private TextMeshProUGUI ammoAmmountText;
 
     //Config Values
     [SerializeField] private float shootingDistance = 80f;
@@ -21,11 +23,18 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         PlayerInput();
+        UpdateUI();
     }
 
     private void OnEnable()
     {
         this.avaibleShooting = true;
+    }
+
+    private void UpdateUI()
+    {
+        int ammount = this.ammountAmmoWeapon.GetAmmount(this.ammoWeapon);//Get the ammount of ammo of the current type
+        this.ammoAmmountText.SetText(ammount.ToString()); //Update UI
     }
 
     private void PlayerInput()

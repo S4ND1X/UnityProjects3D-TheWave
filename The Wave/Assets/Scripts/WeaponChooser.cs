@@ -66,7 +66,7 @@ public class WeaponChooser : MonoBehaviour
         int i = 0;
         foreach(Transform weapon in transform)
         {
-            Debug.Log(weapon);
+
             if ( i == this.currentWeapon)
             {
                 weapon.gameObject.SetActive(true);

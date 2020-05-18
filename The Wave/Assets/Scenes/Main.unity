@@ -619,6 +619,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7263098fda564e4192b01ad3e6488b1, type: 3}
+--- !u!114 &41579660 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7833843919811332799, guid: 3e33d38622c1fc1448b2fb54d13650d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6068159483515442704}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &41750318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16925,6 +16937,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1416896173}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1423809874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 706940880780823746, guid: 3e33d38622c1fc1448b2fb54d13650d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6068159483515442704}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1426250572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26814,6 +26838,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1056022005, guid: acfaff67807743c428a76d29ffa235ee, type: 3}
+      propertyPath: healthTet
+      value: 
+      objectReference: {fileID: 41579660}
+    - target: {fileID: 1056022005, guid: acfaff67807743c428a76d29ffa235ee, type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 41579660}
     - target: {fileID: 912813871254206792, guid: acfaff67807743c428a76d29ffa235ee,
         type: 3}
       propertyPath: m_Name
@@ -26874,6 +26906,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2870059990937557518, guid: acfaff67807743c428a76d29ffa235ee,
+        type: 3}
+      propertyPath: ammoAmmountText
+      value: 
+      objectReference: {fileID: 1423809874}
+    - target: {fileID: 3256774447543080901, guid: acfaff67807743c428a76d29ffa235ee,
+        type: 3}
+      propertyPath: ammoAmmountText
+      value: 
+      objectReference: {fileID: 1423809874}
     - target: {fileID: 5600989911725550707, guid: acfaff67807743c428a76d29ffa235ee,
         type: 3}
       propertyPath: deathScreen
@@ -26961,6 +27003,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 720767879056957528, guid: 3e33d38622c1fc1448b2fb54d13650d4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160102900052742771, guid: 3e33d38622c1fc1448b2fb54d13650d4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164784028172504624, guid: 3e33d38622c1fc1448b2fb54d13650d4,
+        type: 3}
+      propertyPath: m_Name
+      value: Player Health Text
+      objectReference: {fileID: 0}
     - target: {fileID: 6068159482260935239, guid: 3e33d38622c1fc1448b2fb54d13650d4,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -27025,6 +27082,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833843919811332799, guid: 3e33d38622c1fc1448b2fb54d13650d4,
+        type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833843919811332799, guid: 3e33d38622c1fc1448b2fb54d13650d4,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e33d38622c1fc1448b2fb54d13650d4, type: 3}
