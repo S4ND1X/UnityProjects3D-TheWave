@@ -8,9 +8,9 @@ public class EnemyAI : MonoBehaviour
 
     //Cached References
     private Transform playerToFollow;
-    private NavMeshAgent navMeshAgent;
+    private NavMeshAgent navMeshAgent; //Reference to the navMeshAgent
     private Animator enemyAnimator;
-    private EnemyLive enemyLive;
+    private EnemyLive enemyLive; //Reference to the enemy script health
 
     //Config Enemy Values
     [SerializeField] private float followRadius = 4f;

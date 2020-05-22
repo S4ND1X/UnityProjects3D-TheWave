@@ -22,7 +22,7 @@ public class PlayerMove : MonoBehaviour
   
     //Chached references
     private CharacterController charController;
-    [SerializeField] private AnimationCurve jumpFallOff;
+    [SerializeField] private AnimationCurve jumpEval;
 
     
 
@@ -41,13 +41,16 @@ public class PlayerMove : MonoBehaviour
         float horizInput = Input.GetAxis("Horizontal");
         float vertInput = Input.GetAxis("Vertical");
 
-        Vector3 forwardMove = transform.forward * vertInput;
-        Vector3 rightMove = transform.right * horizInput;
+        Vector3 forwardMove = transform.forward * vertInput; // If press W goes forward if press S goes behind
+        Vector3 rightMove = transform.right * horizInput; // Press D goes right, press A goes left
 
         charController.SimpleMove(Vector3.ClampMagnitude(forwardMove + rightMove, 1.0f) * movementSpeed);
 
         if ((vertInput != 0 || horizInput != 0) && OnSlope())
+        {
             charController.Move(Vector3.down * charController.height / 2 * slopePush * Time.deltaTime);
+        }
+            
 
 
         SetMovementSpeed();
@@ -73,9 +76,8 @@ public class PlayerMove : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.down, out hitSlope, 
                             charController.height / 2 * slopeRayCastDistance))
         {
-            if (hitSlope.normal != Vector3.up)
+            if (hitSlope.normal != Vector3.up) // If the normal is not (0,1,0) it means thatis in a slope
             {
-                Debug.Log("Slope");
                 return true;
             }
         }
@@ -103,11 +105,11 @@ public class PlayerMove : MonoBehaviour
         float timeAir = 0.0f;
         do
         {
-            float jumpForce = jumpFallOff.Evaluate(timeAir); // The force is equal to the function an that moment
-            charController.Move(Vector3.up * jumpForce * this.jumpForce * Time.deltaTime);
+            float jumpForce = jumpEval.Evaluate(timeAir); // The force is equal to the function an that moment
+            charController.Move(Vector3.up * jumpForce * this.jumpForce * Time.deltaTime);//Use Move to have Y movement in count
             timeAir += Time.deltaTime; //Add every frame as time
             yield return null;
-        } while (!charController.isGrounded && charController.collisionFlags != CollisionFlags.Above);
+        } while (!charController.isGrounded && charController.collisionFlags != CollisionFlags.Above); // If not in air or collide with ceiling 
 
         charController.slopeLimit = 45.0f;
         isJumping = false;

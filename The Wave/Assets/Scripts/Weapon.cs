@@ -46,7 +46,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    IEnumerator  Shoot()
+    IEnumerator Shoot()
     {
         if (this.ammountAmmoWeapon.GetAmmount(this.ammoWeapon) <= 0) { yield break; } //If run out of ammo don't shoot
         this.ammountAmmoWeapon.SetAmmount(this.ammountAmmoWeapon.GetAmmount(this.ammoWeapon) - 1, this.ammoWeapon); //Reduce ammo of the weapon by 1
